@@ -5,20 +5,19 @@
   
   <title>Python-統計語法 | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相關係數,線性迴歸, statsmodels">
+  <meta name="description" content="相關係數,線性迴歸, statsmodels, sklearn">
 <meta name="keywords" content="線性迴歸,相關係數,statsmodels,sklearn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-統計語法">
 <meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-statistics/index.html">
 <meta property="og:site_name" content="LION OR CAT">
-<meta property="og:description" content="相關係數,線性迴歸, statsmodels">
+<meta property="og:description" content="相關係數,線性迴歸, statsmodels, sklearn">
 <meta property="og:image" content="https://ccliao.github.io/images/scatter.png">
-<meta property="og:image" content="https://ccliao.github.io/images/house.png">
 <meta property="og:image" content="https://ccliao.github.io/images/olsr.png">
-<meta property="og:updated_time" content="2017-06-18T15:47:07.157Z">
+<meta property="og:updated_time" content="2017-06-18T16:01:06.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-統計語法">
-<meta name="twitter:description" content="相關係數,線性迴歸, statsmodels">
+<meta name="twitter:description" content="相關係數,線性迴歸, statsmodels, sklearn">
 <meta name="twitter:image" content="https://ccliao.github.io/images/scatter.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
@@ -97,7 +96,7 @@
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<p>相關係數,線性迴歸, statsmodels</p>
+<p>相關係數,線性迴歸, statsmodels, sklearn</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="相關係數"><a href="#相關係數" class="headerlink" title="相關係數"></a>相關係數</h2><p><code>rets.corr()</code></p>
 <table>
 <thead>
@@ -126,7 +125,8 @@
 <ul>
 <li>series 是一維的數據類型，dataframe 是一個二維的、表格型的數據結構。</li>
 </ul>
-<h2 id="多變量線性迴歸"><a href="#多變量線性迴歸" class="headerlink" title="多變量線性迴歸"></a>多變量線性迴歸</h2><h2 id="sklearn"><a href="#sklearn" class="headerlink" title="sklearn"></a>sklearn</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">house = pd.read_csv(<span class="string">'python_for_data_science-master/Data/house-prices.csv'</span>)</div><div class="line">house1 = pd.concat([house,pd.get_dummies(house[<span class="string">'Brick'</span>]),pd.get_dummies(house[<span class="string">'Neighborhood'</span>])],axis=<span class="number">1</span>)</div><div class="line"><span class="keyword">del</span> house1[<span class="string">'Home'</span>], house1[<span class="string">'No'</span>], house1[<span class="string">'Brick'</span>], house1[<span class="string">'Neighborhood'</span>]</div><div class="line">X = house1[[<span class="string">'SqFt'</span>, <span class="string">'Bedrooms'</span>, <span class="string">'Bathrooms'</span>, <span class="string">'Offers'</span>, <span class="string">'Yes'</span>, <span class="string">'East'</span>, <span class="string">'North'</span>, <span class="string">'West'</span>]]</div><div class="line">Y = house1[<span class="string">'Price'</span>].values</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">regr = LinearRegression()</div><div class="line">regr.fit(X,Y)</div><div class="line">house1[<span class="string">'Price_Predict'</span>] = regr.predict(X).astype(int)</div><div class="line">house1.head()</div></pre></td></tr></table></figure>
+<h2 id="多變量線性迴歸"><a href="#多變量線性迴歸" class="headerlink" title="多變量線性迴歸"></a>多變量線性迴歸</h2><p>`線性迴歸也被稱為最小二乘法回歸（Linear Regression, also called Ordinary Least-Squares (OLS) Regression）</p>
+<h2 id="sklearn"><a href="#sklearn" class="headerlink" title="sklearn"></a>sklearn</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">house = pd.read_csv(<span class="string">'python_for_data_science-master/Data/house-prices.csv'</span>)</div><div class="line">house1 = pd.concat([house,pd.get_dummies(house[<span class="string">'Brick'</span>]),pd.get_dummies(house[<span class="string">'Neighborhood'</span>])],axis=<span class="number">1</span>)</div><div class="line"><span class="keyword">del</span> house1[<span class="string">'Home'</span>], house1[<span class="string">'No'</span>], house1[<span class="string">'Brick'</span>], house1[<span class="string">'Neighborhood'</span>]</div><div class="line">X = house1[[<span class="string">'SqFt'</span>, <span class="string">'Bedrooms'</span>, <span class="string">'Bathrooms'</span>, <span class="string">'Offers'</span>, <span class="string">'Yes'</span>, <span class="string">'East'</span>, <span class="string">'North'</span>, <span class="string">'West'</span>]]</div><div class="line">Y = house1[<span class="string">'Price'</span>].values</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">regr = LinearRegression()</div><div class="line">regr.fit(X,Y)</div><div class="line">house1[<span class="string">'Price_Predict'</span>] = regr.predict(X).astype(int)</div><div class="line">house1.head()</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -212,8 +212,10 @@
 </tbody>
 </table>
 <h2 id="statsmodels"><a href="#statsmodels" class="headerlink" title="statsmodels"></a>statsmodels</h2><p>參數估計：<br>矩估計（Method of Moment、MOM）<br>最小平方法（Ordinary Least Square Estimation, OLSE）<br>最大似然估計（Maximum Likelihood Estimation, MLE）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">house = pd.read_csv(&apos;python_for_data_science-master/Data/house-prices.csv&apos;)</div><div class="line">house1 = pd.concat([house,pd.get_dummies(house[&apos;Brick&apos;]),pd.get_dummies(house[&apos;Neighborhood&apos;])],axis=1)</div><div class="line">del house1[&apos;Home&apos;], house1[&apos;No&apos;], house1[&apos;Brick&apos;], house1[&apos;Neighborhood&apos;], house1[&apos;West&apos;]</div><div class="line">X = house1[[&apos;SqFt&apos;, &apos;Bedrooms&apos;, &apos;Bathrooms&apos;, &apos;Offers&apos;, &apos;Yes&apos;, &apos;East&apos;, &apos;North&apos;]]</div><div class="line">Y = house1[&apos;Price&apos;].values</div><div class="line">from sklearn.linear_model import LinearRegression</div><div class="line">regr = LinearRegression()</div><div class="line">regr.fit(X,Y)</div><div class="line">house1[&apos;Price_Predict&apos;] = regr.predict(X).astype(int)</div><div class="line">import statsmodels.api as sm</div><div class="line">X2 = sm.add_constant(X) #為模型增加常數項，即迴歸線在y軸上的截距</div><div class="line">est = sm.OLS(Y, X2)</div><div class="line">est2 = est.fit()</div><div class="line">print (est2.summary())</div></pre></td></tr></table></figure>
-<p><img src="/images/house.png" alt=""><br><img src="/images/olsr.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import statsmodels.api as sm</div><div class="line">X2 = sm.add_constant(X) #為模型增加常數項，即迴歸線在y軸上的截距</div><div class="line">est = sm.OLS(Y, X2)</div><div class="line">est2 = est.fit()</div><div class="line">print (est2.summary())</div></pre></td></tr></table></figure>
+<p><img src="/images/olsr.png" alt=""></p>
+<p>`regr.coef_<br>array([    52.99374081,   4246.79389165,   7883.27849293,  -8267.48831831,<br>        17297.34952752, -22241.61647014, -20681.03735068])</p>
+<p>`est2.params<br>const        22840.535538<br>SqFt            52.993741<br>Bedrooms      4246.793892<br>Bathrooms     7883.278493<br>Offers       -8267.488318<br>Yes          17297.349528<br>East        -22241.616470<br>North       -20681.037351<br>dtype: float64</p>
 
       
     </div>
