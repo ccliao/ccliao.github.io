@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-pandas/index.html">
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="N/A值處理,文字轉數值,移動平均,One-Hot處理">
-<meta property="og:updated_time" content="2017-06-18T12:27:05.371Z">
+<meta property="og:updated_time" content="2017-06-18T17:58:17.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-Pandas語法">
 <meta name="twitter:description" content="N/A值處理,文字轉數值,移動平均,One-Hot處理">
@@ -117,6 +117,7 @@
 <li>concat將多個pandas資料合併，axis=0依欄位順序排列，axis=1依索引值順序排列，如果要維持原欄位名稱順序，設定axis=1</li>
 <li>Usually axis=0 is said to be “column-wise” and axis=1 “row-wise”</li>
 </ul>
+<h2 id="資料整理"><a href="#資料整理" class="headerlink" title="資料整理"></a>資料整理</h2><p>age = ‘建筑年代：1998\r\n’<br>解析方法有二種<br><code>df[&#39;age&#39;].map(lambda e: 2017 - int(e.strip().strip(&#39;建筑年代：&#39;)))</code><br><code>df[&#39;age&#39;].str.extract(&#39;建筑年代：(\d+)&#39;)</code></p>
 
       
     </div>

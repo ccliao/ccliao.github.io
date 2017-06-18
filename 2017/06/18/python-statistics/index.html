@@ -14,7 +14,7 @@
 <meta property="og:description" content="相關係數,線性迴歸, statsmodels, sklearn">
 <meta property="og:image" content="https://ccliao.github.io/images/scatter.png">
 <meta property="og:image" content="https://ccliao.github.io/images/olsr.png">
-<meta property="og:updated_time" content="2017-06-18T16:04:38.957Z">
+<meta property="og:updated_time" content="2017-06-18T17:19:33.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-統計語法">
 <meta name="twitter:description" content="相關係數,線性迴歸, statsmodels, sklearn">
@@ -220,6 +220,16 @@
 <p><code>regr.coef_</code><br>array([    52.99374081,   4246.79389165,   7883.27849293,  -8267.48831831,<br>        17297.34952752, -22241.61647014, -20681.03735068])</p>
 <p><code>regr.intercept_</code><br>22840.535538009528</p>
 <p><code>est2.params</code><br>const        22840.535538<br>SqFt            52.993741<br>Bedrooms      4246.793892<br>Bathrooms     7883.278493<br>Offers       -8267.488318<br>Yes          17297.349528<br>East        -22241.616470<br>North       -20681.037351<br>dtype: float64</p>
+<ul>
+<li><p>赤池信息準則 AIC (Akaike Information Criterion) 評估統計模型的複雜度和衡量統計模型「擬合」資料之優良性的一種標準，尋找可以最好地解釋數據但包含最少自由參數的模型，優先考慮的模型應是AIC值最小的那一個<br>$$ AIC = 2K - 2\ln(L) $$<br>K是參數的數量，L是似然函數<br>當模型複雜度提高（k增大）時，似然函數L也會增大，從而使AIC變小，但是k過大時，似然函數增速減緩，導致AIC增大，模型過於複雜容易造成過擬合現象。</p>
+</li>
+<li><p>貝葉斯信息準則 SIC (Schwartz Information Criterion)</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">predictorcols = [&apos;SqFt&apos;, &apos;Bedrooms&apos;, &apos;Bathrooms&apos;, &apos;Offers&apos;, &apos;Yes&apos;, &apos;East&apos;, &apos;North&apos;]</div><div class="line">import itertools</div><div class="line">AICs = &#123;&#125;</div><div class="line">for k in range(1,len(predictorcols)+1):</div><div class="line">    for variables in itertools.combinations(predictorcols, k): </div><div class="line">        predictors  = X[list(variables)]</div><div class="line">        predictors2 = sm.add_constant(predictors)</div><div class="line">        est = sm.OLS(Y, predictors2)</div><div class="line">        res = est.fit()</div><div class="line">        AICs[variables] = res.aic</div><div class="line">from collections import Counter</div><div class="line">c = Counter(AICs)</div><div class="line">c.most_common()[::-10] #x[startAt:endBefore:skip]</div></pre></td></tr></table></figure>
+<ul>
+<li>itertools迭代指重覆取值，重覆反饋過程的活動<br><code>itertools.combinations([&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;],2)</code>可以得到AB,AC,AD,BC,BD,CD</li>
+</ul>
 
       
     </div>
