@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>地圖視覺化 | LION OR CAT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="6月10日參加地圖視覺化分享與實作課程，學習QGIS軟體使用，課堂上練習使用內政部出生登記子女從姓資料，分析台灣各縣字在從母姓比例上是否有所差異。從圖中可看出，東部及南投地區從母性比重較高，或許和原住民文化相關。  課程結束後，嘗試將各縣市鄉鎮市區的人口數進行漸層色塊呈現，並將雄獅旅行社的門市據點位址呈現在地圖上。處理步驟包含：  Python爬蟲雄獅旅行社門市據點資料 使用Python透過Goo">
+<meta name="keywords" content="Python,QGIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地圖視覺化">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/16/map/index.html">
+<meta property="og:site_name" content="LION OR CAT">
+<meta property="og:description" content="6月10日參加地圖視覺化分享與實作課程，學習QGIS軟體使用，課堂上練習使用內政部出生登記子女從姓資料，分析台灣各縣字在從母姓比例上是否有所差異。從圖中可看出，東部及南投地區從母性比重較高，或許和原住民文化相關。  課程結束後，嘗試將各縣市鄉鎮市區的人口數進行漸層色塊呈現，並將雄獅旅行社的門市據點位址呈現在地圖上。處理步驟包含：  Python爬蟲雄獅旅行社門市據點資料 使用Python透過Goo">
+<meta property="og:image" content="https://drive.google.com/uc?id=0B6_ow9L_0UstUUJNQkJJVWFXalk">
+<meta property="og:image" content="https://drive.google.com/uc?id=0B6_ow9L_0UstNVM3Z1E5dFhxRVU">
+<meta property="og:image" content="https://drive.google.com/uc?id=0B6_ow9L_0UstZ0pBUXF0cUNEYzA">
+<meta property="og:updated_time" content="2017-06-17T04:13:10.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="地圖視覺化">
+<meta name="twitter:description" content="6月10日參加地圖視覺化分享與實作課程，學習QGIS軟體使用，課堂上練習使用內政部出生登記子女從姓資料，分析台灣各縣字在從母姓比例上是否有所差異。從圖中可看出，東部及南投地區從母性比重較高，或許和原住民文化相關。  課程結束後，嘗試將各縣市鄉鎮市區的人口數進行漸層色塊呈現，並將雄獅旅行社的門市據點位址呈現在地圖上。處理步驟包含：  Python爬蟲雄獅旅行社門市據點資料 使用Python透過Goo">
+<meta name="twitter:image" content="https://drive.google.com/uc?id=0B6_ow9L_0UstUUJNQkJJVWFXalk">
+  
+    <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LION OR CAT</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ccliao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-map" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/16/map/" class="article-date">
+  <time datetime="2017-06-15T16:19:28.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/QGIS/">QGIS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      地圖視覺化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>6月10日參加<a href="https://hackpad.com/2017-11-0610-fFPVgwVdLdk" target="_blank" rel="external">地圖視覺化分享與實作</a>課程，學習QGIS軟體使用，<br>課堂上練習使用內政部<a href="http://www.ris.gov.tw/zh_TW/346" target="_blank" rel="external">出生登記子女從姓</a>資料，分析台灣各縣字在從母姓比例上是否有所差異。<br>從圖中可看出，東部及南投地區從母性比重較高，或許和原住民文化相關。</p>
+<p><img src="https://drive.google.com/uc?id=0B6_ow9L_0UstUUJNQkJJVWFXalk" alt="2016年度各縣市出生登記子女從母性的比例"></p>
+<p>課程結束後，嘗試將各縣市鄉鎮市區的人口數進行漸層色塊呈現，並將雄獅旅行社的門市據點位址呈現在地圖上。<br>處理步驟包含：</p>
+<ul>
+<li><a href="https://github.com/ccliao/Crawler/blob/master/%E9%9B%84%E7%8D%85%E9%96%80%E5%B8%82%E6%9F%A5%E8%A9%A2.ipynb" target="_blank" rel="external">Python爬蟲雄獅旅行社門市據點資料</a></li>
+<li><a href="https://github.com/ccliao/Crawler/blob/master/%E7%B6%93%E7%B7%AF%E5%BA%A6%E6%9F%A5%E8%A9%A2.ipynb" target="_blank" rel="external">使用Python透過Google MAP API將地址轉換取得經緯度</a></li>
+<li>自<a href="http://www.ris.gov.tw/zh_TW/346" target="_blank" rel="external">內政部</a>取得鄉鎮市區人口統計資料</li>
+<li>透過QGIS導入縣市界圖、鄉鎮市區界圖、人口數及雄獅門市經緯度資料進行套圖呈現</li>
+</ul>
+<p><strong>一開始找不到經緯度資料導入的地方，因為csv檔導入我選擇＂加入向量圖層＂，正確應選＂加入分隔文字圖層＂</strong></p>
+<ul>
+<li>細看雄獅門市地點主要都在人口數較多的地方</li>
+<li>台北市就萬華沒有門市</li>
+</ul>
+<p><strong>試著下載”105年12月臺北市統計區人口統計_最小統計區”資料來看，想計算門市方圓XX公尺的人數。查詢結果，可以使用buffer功能，實際運作待實作。</strong></p>
+<p><img src="https://drive.google.com/uc?id=0B6_ow9L_0UstNVM3Z1E5dFhxRVU" alt="全省雄獅各門市據點"></p>
+<p><img src="https://drive.google.com/uc?id=0B6_ow9L_0UstZ0pBUXF0cUNEYzA" alt="台北市新北市雄獅各門市據點"></p>
+<p>註：Google Drive預設圖片網址，無法正常呈現出來，經google後將 ? 前的open改為uc即可正確呈現圖片</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/16/map/" data-id="cj42f4aqd0002ykb2kvmtziha" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QGIS/" style="font-size: 10px;">QGIS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/16/map/">地圖視覺化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Kevin Liao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
