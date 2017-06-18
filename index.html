@@ -61,6 +61,172 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python-drawing" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/18/python-drawing/" class="article-date">
+  <time datetime="2017-06-18T07:14:56.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/python-drawing/">python-繪圖語法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>matplotlib中文亂碼<br>-</p>
+<p>方法一：<br><code>matplotlib.rc(&#39;font&#39;, **{&#39;sans-serif&#39; : &#39;SimHei&#39;,
+                       &#39;family&#39; : &#39;sans-serif&#39;})</code></p>
+<p>方法二：<br><code>python
+plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
+<p>黑體（SimHei）<br>微軟正黑體(Microsoft JhengHei)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/18/python-drawing/" data-id="cj42fh7b800056cb2vxlbv6kh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-statistics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/18/python-statistics/" class="article-date">
+  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/python-statistics/">Python-統計語法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="散佈圖-Scatter-Diagram-Scatter-Plot"><a href="#散佈圖-Scatter-Diagram-Scatter-Plot" class="headerlink" title="散佈圖(Scatter Diagram, Scatter Plot)"></a>散佈圖(Scatter Diagram, Scatter Plot)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rets = stockprice.pct_change(<span class="number">1</span>)  </div><div class="line">rets.plot(kind=<span class="string">'scatter'</span>, x=<span class="string">'Ctrip'</span>, y=<span class="string">'Lion'</span> )</div></pre></td></tr></table></figure>
+<p><img src="/images/corr.png" alt="散佈圖"></p>
+<h2 id="相關係數"><a href="#相關係數" class="headerlink" title="相關係數"></a>相關係數</h2><p><code>rets.corr()</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:right">Ctrip</th>
+<th style="text-align:right">Lion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Ctrip</td>
+<td style="text-align:right">1.000000</td>
+<td style="text-align:right">0.059657</td>
+</tr>
+<tr>
+<td> Lion</td>
+<td style="text-align:right">0.059657</td>
+<td style="text-align:right">1.000000</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/18/python-statistics/" data-id="cj42fh7bn00076cb20yhlcch1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-pandas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/18/python-pandas/" class="article-date">
+  <time datetime="2017-06-18T00:18:38.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/python-pandas/">Python-Pandas語法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>pandas中N/A值處理<br>-</p>
+<ul>
+<li>如果要將N/A值補上資料，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html" target="_blank" rel="external">.fillna</a><br>DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)</li>
+<li><p>method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None</p>
+<blockquote>
+<p>pad 或 ffill 上一個值<br>backfill 或 bfill 下一個值</p>
+</blockquote>
+</li>
+<li><p>如果要填入平均值則<br>people[‘age’].fillna(people[‘age’].mean())</p>
+</li>
+<li><p>如果要刪除存在N/A值的列,使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.dropna.html" target="_blank" rel="external">.dropna</a><br>DataFrame.dropna(axis=0, how=’any’, thresh=None, subset=None, inplace=False)[source]</p>
+</li>
+<li><p>採用插補法，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.interpolate.html" target="_blank" rel="external">.interpolate</a><br>Series.interpolate(method=’linear’, axis=0, limit=None, inplace=False, limit_direction=’forward’, downcast=None)<br>method : {‘linear’, ‘time’, ‘index’, ‘values’, ‘nearest’, ‘zero’,<br>‘slinear’, ‘quadratic’, ‘cubic’, ‘barycentric’, ‘krogh’, ‘polynomial’, ‘spline’, ‘piecewise_polynomial’, ‘from_derivatives’, ‘pchip’, ‘akima’}</p>
+<blockquote>
+<p>Please note that only method=’linear’ is supported for DataFrames/Series with a MultiIndex</p>
+</blockquote>
+</li>
+<li><p>將文字轉為數值格式，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html" target="_blank" rel="external">.to_numeric</a><br>pandas.to_numeric(arg, errors=’raise’, downcast=None)</p>
+</li>
+<li><p>移動平均<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html" target="_blank" rel="external">.rolling</a><br>DataFrame.rolling(window, min_periods=None, freq=None, center=False, win_type=None, on=None, axis=0, closed=None)<br>ex. 三日移動平均<code>stock[&#39;Close&#39;].rolling(window=3).mean()</code></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/18/python-pandas/" data-id="cj42fh7bn00066cb24lqe0tzf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-map" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/16/map/" class="article-date">
@@ -109,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/2017/06/16/map/" data-id="cj42fbijl00004gb2dyr60j78" class="article-share-link">Share</a>
+      <a data-url="https://ccliao.github.io/2017/06/16/map/" data-id="cj42fh7as00006cb2mytkme3p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
@@ -156,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/2017/06/13/hello-world/" data-id="cj42fbilb00024gb2hkcqjsq9" class="article-share-link">Share</a>
+      <a data-url="https://ccliao.github.io/2017/06/13/hello-world/" data-id="cj42fh7b800026cb282zd8bt6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +351,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
     </div>
   </div>
 
@@ -195,7 +361,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QGIS/" style="font-size: 10px;">QGIS</a>
+      <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/QGIS/" style="font-size: 10px;">QGIS</a>
     </div>
   </div>
 
@@ -215,6 +381,18 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/18/python-drawing/">python-繪圖語法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/18/python-statistics/">Python-統計語法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/18/python-pandas/">Python-Pandas語法</a>
+          </li>
         
           <li>
             <a href="/2017/06/16/map/">地圖視覺化</a>

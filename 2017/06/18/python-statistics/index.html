@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>彙整 | LION OR CAT</title>
+  <title>Python-統計語法 | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LION OR CAT">
-<meta property="og:url" content="https://ccliao.github.io/archives/index.html">
+  <meta name="description" content="散佈圖(Scatter Diagram, Scatter Plot)12rets = stockprice.pct_change(1)  rets.plot(kind=&apos;scatter&apos;, x=&apos;Ctrip&apos;, y=&apos;Lion&apos; )  相關係數rets.corr()     Ctrip Lion      Ctrip 1.000000 0.059657    Lion 0.059657 1.000">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-統計語法">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-statistics/index.html">
 <meta property="og:site_name" content="LION OR CAT">
+<meta property="og:description" content="散佈圖(Scatter Diagram, Scatter Plot)12rets = stockprice.pct_change(1)  rets.plot(kind=&apos;scatter&apos;, x=&apos;Ctrip&apos;, y=&apos;Lion&apos; )  相關係數rets.corr()     Ctrip Lion      Ctrip 1.000000 0.059657    Lion 0.059657 1.000">
+<meta property="og:image" content="https://ccliao.github.io/images/corr.png">
+<meta property="og:updated_time" content="2017-06-18T08:05:59.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LION OR CAT">
+<meta name="twitter:title" content="Python-統計語法">
+<meta name="twitter:description" content="散佈圖(Scatter Diagram, Scatter Plot)12rets = stockprice.pct_change(1)  rets.plot(kind=&apos;scatter&apos;, x=&apos;Ctrip&apos;, y=&apos;Lion&apos; )  相關係數rets.corr()     Ctrip Lion      Ctrip 1.000000 0.059657    Lion 0.059657 1.000">
+<meta name="twitter:image" content="https://ccliao.github.io/images/corr.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -59,115 +66,86 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-drawing/" class="archive-article-date">
-  <time datetime="2017-06-18T07:14:56.000Z" itemprop="datePublished">6月 18</time>
+        <section id="main"><article id="post-python-statistics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/18/python-statistics/" class="article-date">
+  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">2017-06-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-drawing/">python-繪圖語法</a>
+    <h1 class="article-title" itemprop="name">
+      Python-統計語法
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-statistics/" class="archive-article-date">
-  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">6月 18</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-statistics/">Python-統計語法</a>
-    </h1>
-  
+        <h2 id="散佈圖-Scatter-Diagram-Scatter-Plot"><a href="#散佈圖-Scatter-Diagram-Scatter-Plot" class="headerlink" title="散佈圖(Scatter Diagram, Scatter Plot)"></a>散佈圖(Scatter Diagram, Scatter Plot)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rets = stockprice.pct_change(<span class="number">1</span>)  </div><div class="line">rets.plot(kind=<span class="string">'scatter'</span>, x=<span class="string">'Ctrip'</span>, y=<span class="string">'Lion'</span> )</div></pre></td></tr></table></figure>
+<p><img src="/images/corr.png" alt="散佈圖"></p>
+<h2 id="相關係數"><a href="#相關係數" class="headerlink" title="相關係數"></a>相關係數</h2><p><code>rets.corr()</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:right">Ctrip</th>
+<th style="text-align:right">Lion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Ctrip</td>
+<td style="text-align:right">1.000000</td>
+<td style="text-align:right">0.059657</td>
+</tr>
+<tr>
+<td> Lion</td>
+<td style="text-align:right">0.059657</td>
+<td style="text-align:right">1.000000</td>
+</tr>
+</tbody>
+</table>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-pandas/" class="archive-article-date">
-  <time datetime="2017-06-18T00:18:38.000Z" itemprop="datePublished">6月 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-pandas/">Python-Pandas語法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/16/map/" class="archive-article-date">
-  <time datetime="2017-06-15T16:19:28.000Z" itemprop="datePublished">6月 16</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/18/python-statistics/" data-id="cj42fh7bn00076cb20yhlcch1" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/16/map/">地圖視覺化</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/13/hello-world/" class="archive-article-date">
-  <time datetime="2017-06-13T14:16:29.865Z" itemprop="datePublished">6月 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/13/hello-world/">Hello World</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/18/python-drawing/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python-繪圖語法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/18/python-pandas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python-Pandas語法</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
