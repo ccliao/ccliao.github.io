@@ -87,12 +87,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="matplotlib中文亂碼"><a href="#matplotlib中文亂碼" class="headerlink" title="matplotlib中文亂碼"></a>matplotlib中文亂碼</h2><p>方法一：<br><code>matplotlib.rc(&#39;font&#39;, **{&#39;sans-serif&#39; : &#39;SimHei&#39;,
-                       &#39;family&#39; : &#39;sans-serif&#39;})</code></p>
-<p>方法二：<br><code>python
-plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
-<p>黑體（SimHei）<br>微軟正黑體(Microsoft JhengHei)</p>
-
+        <p>matplotlib中文亂碼解決</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <p class="article-more-link">
+            <a href="/2017/06/18/python-drawing/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -134,31 +135,13 @@ plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="散佈圖-Scatter-Diagram-Scatter-Plot"><a href="#散佈圖-Scatter-Diagram-Scatter-Plot" class="headerlink" title="散佈圖(Scatter Diagram, Scatter Plot)"></a>散佈圖(Scatter Diagram, Scatter Plot)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rets = stockprice.pct_change(<span class="number">1</span>)  </div><div class="line">rets.plot(kind=<span class="string">'scatter'</span>, x=<span class="string">'Ctrip'</span>, y=<span class="string">'Lion'</span> )</div></pre></td></tr></table></figure>
-<p><img src="/images/corr.png" alt="散佈圖"></p>
-<h2 id="相關係數"><a href="#相關係數" class="headerlink" title="相關係數"></a>相關係數</h2><p><code>rets.corr()</code></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:right">Ctrip</th>
-<th style="text-align:right">Lion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Ctrip</td>
-<td style="text-align:right">1.000000</td>
-<td style="text-align:right">0.059657</td>
-</tr>
-<tr>
-<td> Lion</td>
-<td style="text-align:right">0.059657</td>
-<td style="text-align:right">1.000000</td>
-</tr>
-</tbody>
-</table>
-
+        <p>散佈圖,相關係數</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <p class="article-more-link">
+            <a href="/2017/06/18/python-statistics/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -200,29 +183,13 @@ plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>pandas中N/A值處理<br>-</p>
-<ul>
-<li>如果要將N/A值補上資料，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html" target="_blank" rel="external">.fillna</a><br>DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)</li>
-<li><p>method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None</p>
-<blockquote>
-<p>pad 或 ffill 上一個值<br>backfill 或 bfill 下一個值</p>
-</blockquote>
-</li>
-<li><p>如果要填入平均值則<br>people[‘age’].fillna(people[‘age’].mean())</p>
-</li>
-<li><p>如果要刪除存在N/A值的列,使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.dropna.html" target="_blank" rel="external">.dropna</a><br>DataFrame.dropna(axis=0, how=’any’, thresh=None, subset=None, inplace=False)[source]</p>
-</li>
-<li><p>採用插補法，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.interpolate.html" target="_blank" rel="external">.interpolate</a><br>Series.interpolate(method=’linear’, axis=0, limit=None, inplace=False, limit_direction=’forward’, downcast=None)<br>method : {‘linear’, ‘time’, ‘index’, ‘values’, ‘nearest’, ‘zero’,<br>‘slinear’, ‘quadratic’, ‘cubic’, ‘barycentric’, ‘krogh’, ‘polynomial’, ‘spline’, ‘piecewise_polynomial’, ‘from_derivatives’, ‘pchip’, ‘akima’}</p>
-<blockquote>
-<p>Please note that only method=’linear’ is supported for DataFrames/Series with a MultiIndex</p>
-</blockquote>
-</li>
-<li><p>將文字轉為數值格式，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html" target="_blank" rel="external">.to_numeric</a><br>pandas.to_numeric(arg, errors=’raise’, downcast=None)</p>
-</li>
-<li><p>移動平均<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html" target="_blank" rel="external">.rolling</a><br>DataFrame.rolling(window, min_periods=None, freq=None, center=False, win_type=None, on=None, axis=0, closed=None)<br>ex. 三日移動平均<code>stock[&#39;Close&#39;].rolling(window=3).mean()</code></p>
-</li>
-</ul>
-
+        <p>N/A值處理,文字轉數值,移動平均</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <p class="article-more-link">
+            <a href="/2017/06/18/python-pandas/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
