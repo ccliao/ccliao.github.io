@@ -14,7 +14,7 @@
 <meta property="og:description" content="散佈圖,相關係數">
 <meta property="og:image" content="https://ccliao.github.io/images/corr.png">
 <meta property="og:image" content="https://ccliao.github.io/images/scatter.png">
-<meta property="og:updated_time" content="2017-06-18T13:55:16.754Z">
+<meta property="og:updated_time" content="2017-06-18T14:02:48.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-統計語法">
 <meta name="twitter:description" content="散佈圖,相關係數">
@@ -129,7 +129,7 @@
 </ul>
 <h2 id="多元線性迴歸"><a href="#多元線性迴歸" class="headerlink" title="多元線性迴歸"></a>多元線性迴歸</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">house = pd.read_csv(<span class="string">'python_for_data_science-master/Data/house-prices.csv'</span>)</div><div class="line">house1 = pd.concat([house,pd.get_dummies(house[<span class="string">'Brick'</span>]),pd.get_dummies(house[<span class="string">'Neighborhood'</span>])],axis=<span class="number">1</span>)</div><div class="line"><span class="keyword">del</span> house1[<span class="string">'Home'</span>], house1[<span class="string">'No'</span>], house1[<span class="string">'Brick'</span>], house1[<span class="string">'Neighborhood'</span>]</div><div class="line">X = house1[[<span class="string">'SqFt'</span>, <span class="string">'Bedrooms'</span>, <span class="string">'Bathrooms'</span>, <span class="string">'Offers'</span>, <span class="string">'Yes'</span>, <span class="string">'East'</span>, <span class="string">'North'</span>, <span class="string">'West'</span>]]</div><div class="line">Y = house1[<span class="string">'Price'</span>].values</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">regr = LinearRegression()</div><div class="line">regr.fit(X,Y)</div><div class="line">house1[<span class="string">'Price_Predict'</span>] = regr.predict(X).astype(int)</div><div class="line">house1.head()</div></pre></td></tr></table></figure>
 <pre><code>| Price    | SqFt    | Bedrooms    | Bathrooms    | Offers    | Yes    | East    | North    | West    | Price_Predict
-</code></pre><p>0    | 114300    | 1790    | 2    | 2    | 2    | 0    | 1    | 0    | 0    | 103182<br>1    | 114200    | 2030    | 4    | 2    | 3    | 0    | 1    | 0    | 0    | 116127<br>2    | 114800    | 1740    | 3    | 2    | 1    | 0    | 1    | 0    | 0    | 113047<br>3    | 94700    | 1980    | 3    | 2    | 3    | 0    | 1    | 0    | 0    | 109230<br>4    | 119800    | 2130    | 3    | 3    | 3    | 0    | 1    | 0    | 0    | 125063</p>
+</code></pre><p>— | — | — | — | — | — | — | — | — | — | —<br>0    | 114300    | 1790    | 2    | 2    | 2    | 0    | 1    | 0    | 0    | 103182<br>1    | 114200    | 2030    | 4    | 2    | 3    | 0    | 1    | 0    | 0    | 116127<br>2    | 114800    | 1740    | 3    | 2    | 1    | 0    | 1    | 0    | 0    | 113047<br>3    | 94700    | 1980    | 3    | 2    | 3    | 0    | 1    | 0    | 0    | 109230<br>4    | 119800    | 2130    | 3    | 3    | 3    | 0    | 1    | 0    | 0    | 125063</p>
 
       
     </div>
