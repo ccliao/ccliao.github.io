@@ -3,19 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python-Pandas語法 | LION OR CAT</title>
+  <title>Category: Python | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pandas中N/A值處理-  如果要將N/A值補上資料，使用.fillnaDataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None) method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None">
-<meta name="keywords" content="Pandas">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python-Pandas語法">
-<meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-pandas/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="LION OR CAT">
+<meta property="og:url" content="https://ccliao.github.io/categories/Python/index.html">
 <meta property="og:site_name" content="LION OR CAT">
-<meta property="og:description" content="pandas中N/A值處理-  如果要將N/A值補上資料，使用.fillnaDataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None) method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None">
-<meta property="og:updated_time" content="2017-06-18T08:10:44.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python-Pandas語法">
-<meta name="twitter:description" content="pandas中N/A值處理-  如果要將N/A值補上資料，使用.fillnaDataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None) method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None">
+<meta name="twitter:title" content="LION OR CAT">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -64,88 +59,77 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-python-pandas" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/18/python-pandas/" class="article-date">
-  <time datetime="2017-06-18T00:18:38.000Z" itemprop="datePublished">2017-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Python-Pandas語法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/06/18/python-drawing/" class="archive-article-date">
+  <time datetime="2017-06-18T07:14:56.000Z" itemprop="datePublished">6月 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/18/python-drawing/">python-繪圖語法</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>pandas中N/A值處理<br>-</p>
-<ul>
-<li>如果要將N/A值補上資料，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html" target="_blank" rel="external">.fillna</a><br>DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)</li>
-<li><p>method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None</p>
-<blockquote>
-<p>pad 或 ffill 上一個值<br>backfill 或 bfill 下一個值</p>
-</blockquote>
-</li>
-<li><p>如果要填入平均值則<br>people[‘age’].fillna(people[‘age’].mean())</p>
-</li>
-<li><p>如果要刪除存在N/A值的列,使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.dropna.html" target="_blank" rel="external">.dropna</a><br>DataFrame.dropna(axis=0, how=’any’, thresh=None, subset=None, inplace=False)[source]</p>
-</li>
-<li><p>採用插補法，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.interpolate.html" target="_blank" rel="external">.interpolate</a><br>Series.interpolate(method=’linear’, axis=0, limit=None, inplace=False, limit_direction=’forward’, downcast=None)<br>method : {‘linear’, ‘time’, ‘index’, ‘values’, ‘nearest’, ‘zero’,<br>‘slinear’, ‘quadratic’, ‘cubic’, ‘barycentric’, ‘krogh’, ‘polynomial’, ‘spline’, ‘piecewise_polynomial’, ‘from_derivatives’, ‘pchip’, ‘akima’}</p>
-<blockquote>
-<p>Please note that only method=’linear’ is supported for DataFrames/Series with a MultiIndex</p>
-</blockquote>
-</li>
-<li><p>將文字轉為數值格式，使用<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html" target="_blank" rel="external">.to_numeric</a><br>pandas.to_numeric(arg, errors=’raise’, downcast=None)</p>
-</li>
-<li><p>移動平均<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html" target="_blank" rel="external">.rolling</a><br>DataFrame.rolling(window, min_periods=None, freq=None, center=False, win_type=None, on=None, axis=0, closed=None)<br>ex. 三日移動平均<code>stock[&#39;Close&#39;].rolling(window=3).mean()</code></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/2017/06/18/python-pandas/" data-id="cj42fo9bf0002o0b2t6q5cyrq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/">Pandas</a></li></ul>
-
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/06/18/python-statistics/" class="archive-article-date">
+  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">6月 18</time>
+</a>
+      
   
-    <a href="/2017/06/18/python-statistics/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Python-統計語法
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/18/python-statistics/">Python-統計語法</a>
+    </h1>
   
-  
-    <a href="/2017/06/16/map/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">地圖視覺化</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/06/18/python-pandas/" class="archive-article-date">
+  <time datetime="2017-06-18T00:18:38.000Z" itemprop="datePublished">6月 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/18/python-pandas/">Python-Pandas語法</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
 </section>
         
