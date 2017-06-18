@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="matplotlib中文亂碼解決, 散佈圖, 線性迴歸">
 <meta property="og:image" content="https://ccliao.github.io/images/scatter.png">
-<meta property="og:updated_time" content="2017-06-18T10:13:58.279Z">
+<meta property="og:updated_time" content="2017-06-18T10:19:05.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-繪圖語法">
 <meta name="twitter:description" content="matplotlib中文亂碼解決, 散佈圖, 線性迴歸">
@@ -92,17 +92,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>matplotlib中文亂碼解決, 散佈圖, 線性迴歸</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<h2 id="matplotlib中文亂碼解決"><a href="#matplotlib中文亂碼解決" class="headerlink" title="matplotlib中文亂碼解決"></a>matplotlib中文亂碼解決</h2><p>方法一：<br><code>matplotlib.rc(&#39;font&#39;, **{&#39;sans-serif&#39; : &#39;SimHei&#39;,
+<p>matplotlib中文亂碼解決, 散佈圖, 線性迴歸</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="matplotlib中文亂碼解決"><a href="#matplotlib中文亂碼解決" class="headerlink" title="matplotlib中文亂碼解決"></a>matplotlib中文亂碼解決</h2><p>方法一：<br><code>matplotlib.rc(&#39;font&#39;, **{&#39;sans-serif&#39; : &#39;SimHei&#39;,
                        &#39;family&#39; : &#39;sans-serif&#39;})</code></p>
 <p>方法二：<br><code>python
 plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
 <p>黑體（SimHei）<br>微軟正黑體(Microsoft JhengHei)</p>
 <h2 id="線性迴歸-LinearRegression"><a href="#線性迴歸-LinearRegression" class="headerlink" title="線性迴歸(LinearRegression)"></a>線性迴歸(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" target="_blank" rel="external">LinearRegression</a>)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">from sklearn.linear_model import LinearRegression</div><div class="line">X1 = X.iloc[0:len(X)].to_frame() #Convert Series to DataFrame</div><div class="line">Y1 = Y.iloc[0:len(Y)].to_frame()</div><div class="line">regr = LinearRegression()</div><div class="line">regr.fit(X1,Y1)</div><div class="line">regr.coef_ #係數</div><div class="line">regr.intercept_ #截距</div><div class="line">regr.predict(X1) #依線性迴歸公式計算Y值</div><div class="line">% pylab inline #繪製散佈圖</div><div class="line"># matplotlib.rc(&apos;font&apos;, **&#123;&apos;sans-serif&apos; : &apos;SimHei&apos;,</div><div class="line">#                        &apos;family&apos; : &apos;sans-serif&apos;&#125;)</div><div class="line">plt.scatter(X1,Y1, color=&quot;black&quot;)</div><div class="line">plt.xlabel(&apos;戶數&apos;,fontproperties=&apos;SimHei&apos;)</div><div class="line">plt.ylabel(&apos;人口數&apos;,fontproperties=&apos;SimHei&apos;)</div></pre></td></tr></table></figure>
-<p>$$Y = β_0+β_1X$$<br><img src="/images/scatter.png" alt="戶數與人口散佈圖"></p>
+<p>$$ Y = β_0+β_1X $$<br><img src="/images/scatter.png" alt="戶數與人口散佈圖"></p>
 <p>錯誤訊息：<br>執行regr.fit時，產生異常訊息<br><code>Found input variables with inconsistent numbers of samples: [1, 368]</code><br>處理方式：<br>錯誤原因是sklearn要求使用DataFrame，但原資料為Series，所以將資料重新reshape即可使用X.iloc[0:len(X)].to_frame()</p>
 <ul>
 <li>series 是一維的數據類型，dataframe 是一個二維的、表格型的數據結構。</li>
