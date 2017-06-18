@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-pandas/index.html">
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="N/A值處理,文字轉數值,移動平均">
-<meta property="og:updated_time" content="2017-06-18T08:29:07.392Z">
+<meta property="og:updated_time" content="2017-06-18T12:20:37.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-Pandas語法">
 <meta name="twitter:description" content="N/A值處理,文字轉數值,移動平均">
@@ -112,6 +112,14 @@
 </li>
 <li><p>移動平均<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html" target="_blank" rel="external">.rolling</a><br>DataFrame.rolling(window, min_periods=None, freq=None, center=False, win_type=None, on=None, axis=0, closed=None)<br>ex. 三日移動平均<code>stock[&#39;Close&#39;].rolling(window=3).mean()</code></p>
 </li>
+<li><p>欄位名稱中有空白時(ex.”總 計”)，無法讀取，將空白刪除<br><code>p2.columns = [c.replace(&#39; &#39;, &#39;&#39;) for c in p2.columns]</code></p>
+</li>
+</ul>
+<p>One-Hot處理<br>-<br><code>pandas.get_dummies(data, prefix=None, prefix_sep=’_’, dummy_na=False, columns=None, sparse=False, drop_first=False)</code><br>將欄位內容(類別變數)轉換為0/1數值，以做後續迴歸處理<br>ex.方向有東西南北四種項目，則<br>東 100<br>西 010<br>南 001<br>北 000</p>
+<p><code>house1 = pd.concat([house,pd.get_dummies(house[&#39;Brick&#39;]),pd.get_dummies(house[&#39;Neighborhood&#39;])],axis=1)</code></p>
+<ul>
+<li>concat將多個pandas資料合併，axis=0依欄位順序排列，axis=1依索引值順序排列，如果要維持原欄位名稱順序，設定axis=1</li>
+<li>Usually axis=0 is said to be “column-wise” and axis=1 “row-wise”</li>
 </ul>
 
       
