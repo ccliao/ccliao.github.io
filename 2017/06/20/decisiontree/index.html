@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tags | LION OR CAT</title>
+  <title>Python-決策樹 | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://ccliao.github.io/tags/index.html">
+  <meta name="description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
+<meta name="keywords" content="決策樹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-決策樹">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/20/decisiontree/index.html">
 <meta property="og:site_name" content="LION OR CAT">
-<meta property="og:updated_time" content="2017-06-17T02:13:56.867Z">
+<meta property="og:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
+<meta property="og:updated_time" content="2017-06-20T16:41:37.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="Python-決策樹">
+<meta name="twitter:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -60,12 +64,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-decisiontree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tags/index.html" class="article-date">
-  <time datetime="2017-06-17T02:12:05.000Z" itemprop="datePublished">2017-06-17</time>
+    <a href="/2017/06/20/decisiontree/" class="article-date">
+  <time datetime="2017-06-20T01:06:33.000Z" itemprop="datePublished">2017-06-20</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -74,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Python-決策樹
     </h1>
   
 
@@ -82,17 +90,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h1 id="決策樹圖形無法出現"><a href="#決策樹圖形無法出現" class="headerlink" title="決策樹圖形無法出現"></a>決策樹圖形無法出現</h1><p>分別在pydotplus及graphviz package出現問題</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="無法安裝pydotplus套件"><a href="#無法安裝pydotplus套件" class="headerlink" title="無法安裝pydotplus套件"></a>無法安裝pydotplus套件</h2><p>直接使用conda或pip在Python3環境下都捉不到此套件，查了下<a href="https://stackoverflow.com/questions/40208695/how-to-install-pydotplus-for-python-3-5-on-windows64" target="_blank" rel="external">stackoverflow</a>，可以透過conda-forge進行安裝<br><code>conda install -c conda-forge pydotplus</code><br><code>conda install -c conda-forge graphviz</code></p>
+<ul>
+<li><a href="https://conda-forge.github.io/#about" target="_blank" rel="external">conda-forge</a>：A community led collection of recipes, build infrastructure and distributions for the conda package manager.</li>
+<li><a href="http://nooverfit.com/wp/%E5%85%B3%E4%BA%8Econda%E5%92%8Canaconda%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E4%BA%8B%E5%AE%9E%E5%92%8C%E8%AF%AF%E8%A7%A3-conda%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" target="_blank" rel="external">关于conda和anaconda不可不知的误解和事实——conda必知必会</a></li>
+</ul>
+<h2 id="Graphviz’s-executable-not-found"><a href="#Graphviz’s-executable-not-found" class="headerlink" title="Graphviz’s executable not found"></a>Graphviz’s executable not found</h2><ol>
+<li>分別用conda及pip安裝graphviz，兩者版本不同，一個是2.38，一個為0.7，不清楚差異。</li>
+<li>但兩者分別安裝後仍舊無法使用</li>
+<li>stackoverflow裡有人提到安裝順序的問題，應該graphviz先，再pydotplus，但試過後無用</li>
+<li>最後依stackoverflow提到從graphviz官網下載msi檔案安裝，並且將graphviz/bin的路徑設定進去電腦環境的PATH中，在原眾多路徑的最後加;及graphviz/bin的絕對路徑</li>
+<li>重新啓動python IDE即可正常產出決策樹圖形</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/tags/index.html" data-id="cj45ti8oj0001o4b2sh943wz6" class="article-share-link">Share</a>
+      <a data-url="https://ccliao.github.io/2017/06/20/decisiontree/" data-id="cj45ti8oj0002o4b2z6mj97hi" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/決策樹/">決策樹</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/18/markdown-doc/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MarkDown使用</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
