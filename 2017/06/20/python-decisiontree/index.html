@@ -6,16 +6,18 @@
   <title>Python-決策樹 | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
-<meta name="keywords" content="決策樹">
+<meta name="keywords" content="決策樹,graphviz,pydotplus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-決策樹">
-<meta property="og:url" content="https://ccliao.github.io/2017/06/20/decisiontree/index.html">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/20/python-decisiontree/index.html">
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
-<meta property="og:updated_time" content="2017-06-20T16:41:37.289Z">
+<meta property="og:image" content="https://ccliao.github.io/image/ecisiontree.png">
+<meta property="og:updated_time" content="2017-06-21T14:08:55.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-決策樹">
 <meta name="twitter:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
+<meta name="twitter:image" content="https://ccliao.github.io/image/ecisiontree.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -64,9 +66,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-decisiontree" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-python-decisiontree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/20/decisiontree/" class="article-date">
+    <a href="/2017/06/20/python-decisiontree/" class="article-date">
   <time datetime="2017-06-20T01:06:33.000Z" itemprop="datePublished">2017-06-20</time>
 </a>
     
@@ -106,14 +108,16 @@
 <li>最後依stackoverflow提到從graphviz官網下載msi檔案安裝，並且將graphviz/bin的路徑設定進去電腦環境的PATH中，在原眾多路徑的最後加;及graphviz/bin的絕對路徑</li>
 <li>重新啓動python IDE即可正常產出決策樹圖形</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">from sklearn.datasets import load_iris</div><div class="line">from sklearn import tree</div><div class="line">from sklearn.tree import export_graphviz</div><div class="line">from sklearn.cross_validation import train_test_split</div><div class="line">from sklearn import metrics</div><div class="line">from IPython.display import Image</div><div class="line"># from IPython.display import display</div><div class="line">import graphviz</div><div class="line">import pydotplus</div><div class="line"></div><div class="line">iris = load_iris() # 讀入鳶尾花資料</div><div class="line">train_X, test_X, train_y, test_y = train_test_split(iris.data, iris.target, test_size = 0.3) # 切分訓練與測試資料</div><div class="line">dt = tree.DecisionTreeClassifier() #決策樹分類器,如指定層,則可用＿ max_depth=2</div><div class="line">dt.fit(train_X, train_y) #將X,y帶入產生模組</div><div class="line">test_y_predicted = dt.predict(test_X) #產出預測值</div><div class="line">accuracy = metrics.accuracy_score(test_y, test_y_predicted) #計算模型正確率</div><div class="line">print(accuracy)</div><div class="line"># 繪製決策樹圖</div><div class="line">dot_data = tree.export_graphviz(dt, out_file=None, </div><div class="line">                     feature_names=iris.feature_names,  </div><div class="line">                     class_names=iris.target_names,  </div><div class="line">                     filled=True, rounded=True,  </div><div class="line">                     special_characters=True)  </div><div class="line">graph = pydotplus.graph_from_dot_data(dot_data)  </div><div class="line">Image(graph.create_png())</div></pre></td></tr></table></figure>
+<p><img src="/image/ecisiontree.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/2017/06/20/decisiontree/" data-id="cj45ti8oj0002o4b2z6mj97hi" class="article-share-link">Share</a>
+      <a data-url="https://ccliao.github.io/2017/06/20/python-decisiontree/" data-id="cj472sdow0000vwb2lovuqxr8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/決策樹/">決策樹</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pydotplus/">pydotplus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/決策樹/">決策樹</a></li></ul>
 
     </footer>
   </div>
@@ -143,7 +147,7 @@
       <ul>
         
           <li>
-            <a href="/2017/06/20/decisiontree/">Python-決策樹</a>
+            <a href="/2017/06/20/python-decisiontree/">Python-決策樹</a>
           </li>
         
           <li>
@@ -155,7 +159,7 @@
           </li>
         
           <li>
-            <a href="/2017/06/18/python-statistics/">Python-統計語法</a>
+            <a href="/2017/06/18/python-statistics/">Python-線性迴歸</a>
           </li>
         
           <li>
@@ -181,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/One-Hot/">One-Hot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itertools/">itertools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/決策樹/">決策樹</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/經緯度/">經緯度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繪圖/">繪圖</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/One-Hot/">One-Hot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itertools/">itertools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pydotplus/">pydotplus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/決策樹/">決策樹</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/經緯度/">經緯度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繪圖/">繪圖</a></li></ul>
     </div>
   </div>
 
@@ -191,7 +195,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/One-Hot/" style="font-size: 10px;">One-Hot</a> <a href="/tags/itertools/" style="font-size: 10px;">itertools</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/statsmodels/" style="font-size: 10px;">statsmodels</a> <a href="/tags/決策樹/" style="font-size: 10px;">決策樹</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/相關係數/" style="font-size: 10px;">相關係數</a> <a href="/tags/經緯度/" style="font-size: 10px;">經緯度</a> <a href="/tags/線性迴歸/" style="font-size: 10px;">線性迴歸</a> <a href="/tags/繪圖/" style="font-size: 10px;">繪圖</a>
+      <a href="/tags/One-Hot/" style="font-size: 10px;">One-Hot</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/itertools/" style="font-size: 10px;">itertools</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/pydotplus/" style="font-size: 10px;">pydotplus</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/statsmodels/" style="font-size: 10px;">statsmodels</a> <a href="/tags/決策樹/" style="font-size: 10px;">決策樹</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/相關係數/" style="font-size: 10px;">相關係數</a> <a href="/tags/經緯度/" style="font-size: 10px;">經緯度</a> <a href="/tags/線性迴歸/" style="font-size: 10px;">線性迴歸</a> <a href="/tags/繪圖/" style="font-size: 10px;">繪圖</a>
     </div>
   </div>
 
