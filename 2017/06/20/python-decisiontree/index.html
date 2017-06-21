@@ -12,12 +12,12 @@
 <meta property="og:url" content="https://ccliao.github.io/2017/06/20/python-decisiontree/index.html">
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
-<meta property="og:image" content="https://ccliao.github.io/image/ecisiontree.png">
-<meta property="og:updated_time" content="2017-06-21T14:08:55.522Z">
+<meta property="og:image" content="https://ccliao.github.io/images/decisiontree.png">
+<meta property="og:updated_time" content="2017-06-21T14:11:26.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-決策樹">
 <meta name="twitter:description" content="決策樹圖形無法出現分別在pydotplus及graphviz package出現問題">
-<meta name="twitter:image" content="https://ccliao.github.io/image/ecisiontree.png">
+<meta name="twitter:image" content="https://ccliao.github.io/images/decisiontree.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -109,7 +109,7 @@
 <li>重新啓動python IDE即可正常產出決策樹圖形</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">from sklearn.datasets import load_iris</div><div class="line">from sklearn import tree</div><div class="line">from sklearn.tree import export_graphviz</div><div class="line">from sklearn.cross_validation import train_test_split</div><div class="line">from sklearn import metrics</div><div class="line">from IPython.display import Image</div><div class="line"># from IPython.display import display</div><div class="line">import graphviz</div><div class="line">import pydotplus</div><div class="line"></div><div class="line">iris = load_iris() # 讀入鳶尾花資料</div><div class="line">train_X, test_X, train_y, test_y = train_test_split(iris.data, iris.target, test_size = 0.3) # 切分訓練與測試資料</div><div class="line">dt = tree.DecisionTreeClassifier() #決策樹分類器,如指定層,則可用＿ max_depth=2</div><div class="line">dt.fit(train_X, train_y) #將X,y帶入產生模組</div><div class="line">test_y_predicted = dt.predict(test_X) #產出預測值</div><div class="line">accuracy = metrics.accuracy_score(test_y, test_y_predicted) #計算模型正確率</div><div class="line">print(accuracy)</div><div class="line"># 繪製決策樹圖</div><div class="line">dot_data = tree.export_graphviz(dt, out_file=None, </div><div class="line">                     feature_names=iris.feature_names,  </div><div class="line">                     class_names=iris.target_names,  </div><div class="line">                     filled=True, rounded=True,  </div><div class="line">                     special_characters=True)  </div><div class="line">graph = pydotplus.graph_from_dot_data(dot_data)  </div><div class="line">Image(graph.create_png())</div></pre></td></tr></table></figure>
-<p><img src="/image/ecisiontree.png" alt=""></p>
+<p><img src="/images/decisiontree.png" alt=""></p>
 
       
     </div>
