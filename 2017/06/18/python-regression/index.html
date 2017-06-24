@@ -6,7 +6,7 @@
   <title>Python-線性迴歸 | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="相關係數,線性迴歸, statsmodels, sklearn, itertools">
-<meta name="keywords" content="線性迴歸,相關係數,statsmodels,sklearn,itertools">
+<meta name="keywords" content="線性迴歸,相關係數,statsmodels,sklearn,itertools,羅吉斯迴歸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-線性迴歸">
 <meta property="og:url" content="https://ccliao.github.io/2017/06/18/python-regression/index.html">
@@ -14,7 +14,9 @@
 <meta property="og:description" content="相關係數,線性迴歸, statsmodels, sklearn, itertools">
 <meta property="og:image" content="https://ccliao.github.io/images/scatter.png">
 <meta property="og:image" content="https://ccliao.github.io/images/olsr.png">
-<meta property="og:updated_time" content="2017-06-21T13:42:10.118Z">
+<meta property="og:image" content="https://ccliao.github.io/images/decisiontree_group.png">
+<meta property="og:image" content="https://ccliao.github.io/images/logistic_regression.png">
+<meta property="og:updated_time" content="2017-06-24T08:13:05.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-線性迴歸">
 <meta name="twitter:description" content="相關係數,線性迴歸, statsmodels, sklearn, itertools">
@@ -230,6 +232,8 @@
 <ul>
 <li>itertools迭代指重覆取值，重覆反饋過程的活動<br><code>itertools.combinations([&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;],2)</code>可以得到AB,AC,AD,BC,BD,CD</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">from sklearn. datasets import load_iris</div><div class="line">#from sklearn import tree</div><div class="line">from sklearn.linear_model import LogisticRegression</div><div class="line">iris = load_iris()</div><div class="line">X = iris.data[:, [2, 3]]</div><div class="line">y = iris.target</div><div class="line"># clf = tree.DecisionTreeClassifier(max_depth=2)</div><div class="line">clf = LogisticRegression()</div><div class="line">clf.fit(X, y)</div><div class="line">x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1 #加1減1只是為了繪圖時留空白</div><div class="line">y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1</div><div class="line">xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1),</div><div class="line">                     np.arange(y_min, y_max, 0.1)) #meshgrid根據坐標向量創建坐標矩陣</div><div class="line">Z = clf.predict(np.c_[xx.ravel(), yy.ravel()]) #一維,共3476筆資料 </div><div class="line">#ravel() Return a contiguous flattened array</div><div class="line">#np.c_ 串接兩個list,np.ravel將矩陣變為一維</div><div class="line">Z = Z.reshape(xx.shape) #二維,共44筆資料(44,79)</div><div class="line">plt.figure()</div><div class="line">#Contours(輪廓) can be explained simply as a curve joining all the continuous points (along the boundary), having same color or intensity.</div><div class="line">plt.contourf(xx, yy, Z, alpha=0.4, cmap = plt.cm.RdYlBu) #cmap- Colormap #alpha透明度,愈小愈透明0~1</div><div class="line">plt.scatter(X[:, 0], X[:, 1], c=y,  cmap = plt.cm.brg) #c - color</div><div class="line">plt.title(&apos;Logistic Regression&apos;)</div><div class="line">plt.xlabel(&apos;Petal.Length&apos;)</div><div class="line">plt.ylabel(&apos;Petal.Width&apos;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p><img src="/images/decisiontree_group.png" alt="決策樹模型"><br><img src="/images/logistic_regression.png" alt="羅吉斯迴歸模型"></p>
 
       
     </div>
@@ -237,7 +241,7 @@
       <a data-url="https://ccliao.github.io/2017/06/18/python-regression/" data-id="cj4azjjq50000r4b2e35acab2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itertools/">itertools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itertools/">itertools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/羅吉斯迴歸/">羅吉斯迴歸</a></li></ul>
 
     </footer>
   </div>
@@ -314,7 +318,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/One-Hot/">One-Hot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contourf/">contourf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itertools/">itertools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meshgrid/">meshgrid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pydotplus/">pydotplus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/決策樹/">決策樹</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/經緯度/">經緯度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繪圖/">繪圖</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/One-Hot/">One-Hot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contourf/">contourf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itertools/">itertools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meshgrid/">meshgrid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pydotplus/">pydotplus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statsmodels/">statsmodels</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/決策樹/">決策樹</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬蟲/">爬蟲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/相關係數/">相關係數</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/經緯度/">經緯度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/線性迴歸/">線性迴歸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/繪圖/">繪圖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/羅吉斯迴歸/">羅吉斯迴歸</a></li></ul>
     </div>
   </div>
 
@@ -324,7 +328,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/One-Hot/" style="font-size: 10px;">One-Hot</a> <a href="/tags/contourf/" style="font-size: 10px;">contourf</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/itertools/" style="font-size: 10px;">itertools</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/meshgrid/" style="font-size: 10px;">meshgrid</a> <a href="/tags/numpy/" style="font-size: 10px;">numpy</a> <a href="/tags/pydotplus/" style="font-size: 10px;">pydotplus</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/statsmodels/" style="font-size: 10px;">statsmodels</a> <a href="/tags/決策樹/" style="font-size: 10px;">決策樹</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/相關係數/" style="font-size: 10px;">相關係數</a> <a href="/tags/經緯度/" style="font-size: 10px;">經緯度</a> <a href="/tags/線性迴歸/" style="font-size: 10px;">線性迴歸</a> <a href="/tags/繪圖/" style="font-size: 10px;">繪圖</a>
+      <a href="/tags/One-Hot/" style="font-size: 10px;">One-Hot</a> <a href="/tags/contourf/" style="font-size: 10px;">contourf</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/itertools/" style="font-size: 10px;">itertools</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/meshgrid/" style="font-size: 10px;">meshgrid</a> <a href="/tags/numpy/" style="font-size: 10px;">numpy</a> <a href="/tags/pydotplus/" style="font-size: 10px;">pydotplus</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/statsmodels/" style="font-size: 10px;">statsmodels</a> <a href="/tags/決策樹/" style="font-size: 10px;">決策樹</a> <a href="/tags/爬蟲/" style="font-size: 10px;">爬蟲</a> <a href="/tags/相關係數/" style="font-size: 10px;">相關係數</a> <a href="/tags/經緯度/" style="font-size: 10px;">經緯度</a> <a href="/tags/線性迴歸/" style="font-size: 10px;">線性迴歸</a> <a href="/tags/繪圖/" style="font-size: 10px;">繪圖</a> <a href="/tags/羅吉斯迴歸/" style="font-size: 10px;">羅吉斯迴歸</a>
     </div>
   </div>
 
