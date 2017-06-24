@@ -13,7 +13,8 @@
 <meta property="og:site_name" content="LION OR CAT">
 <meta property="og:description" content="matplotlib中文亂碼解決, 散佈圖">
 <meta property="og:image" content="https://ccliao.github.io/images/corr.png">
-<meta property="og:updated_time" content="2017-06-24T07:37:41.635Z">
+<meta property="og:image" content="https://ccliao.github.io/images/hearmap.png">
+<meta property="og:updated_time" content="2017-06-24T11:12:03.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-繪圖語法">
 <meta name="twitter:description" content="matplotlib中文亂碼解決, 散佈圖">
@@ -103,6 +104,8 @@ plt.xlabel(&#39;戶數&#39;,fontproperties=&#39;SimHei&#39;)</code></p>
 <p>黑體（SimHei）<br>微軟正黑體(Microsoft JhengHei)</p>
 <h2 id="散佈圖-Scatter-Diagram-Scatter-Plot"><a href="#散佈圖-Scatter-Diagram-Scatter-Plot" class="headerlink" title="散佈圖(Scatter Diagram, Scatter Plot)"></a>散佈圖(Scatter Diagram, Scatter Plot)</h2><p><code>rets.plot(kind=&#39;scatter&#39;, x=&#39;Ctrip&#39;, y=&#39;Lion&#39; )</code><br><code>import matplotlib.pyplot as plt</code><br><code>plt.scatter(X[:,0],X[:,1],color=&quot;black&quot;)</code></p>
 <p><img src="/images/corr.png" alt="散佈圖"></p>
+<p><code>import seaborn</code><br><code>seaborn.heatmap(confusion_matrix(iris.target, predicted))</code><br>Seaborn提供了許多進階的視覺化如：熱度圖（Heatmap）、集群圖（Clustermap）、小提琴圖（Violinplot）等等。Plotly則提供了更多視覺化方便的即時調整功能，如：挑選變數、放大、縮小、下載等。Boken提供探索式分析（Exploratory Data Analysis），可以調整變數值的範圍，即時產生作圖。</p>
+<p><img src="/images/hearmap.png" alt="熱度圖"></p>
 <p>其它圖形可參考 <a href="https://read01.com/PE3QmE.html" target="_blank" rel="external">如何在論文中畫出漂亮的插圖？</a></p>
 
       
