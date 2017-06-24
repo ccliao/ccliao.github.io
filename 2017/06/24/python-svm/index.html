@@ -10,9 +10,13 @@
 <meta property="og:title" content="Python-支援向量機SVM">
 <meta property="og:url" content="https://ccliao.github.io/2017/06/24/python-svm/index.html">
 <meta property="og:site_name" content="LION OR CAT">
-<meta property="og:updated_time" content="2017-06-24T08:21:53.200Z">
+<meta property="og:image" content="https://ccliao.github.io/images/decisiontree_group.png">
+<meta property="og:image" content="https://ccliao.github.io/images/svm.png">
+<meta property="og:image" content="https://ccliao.github.io/images/logistic_regression.png">
+<meta property="og:updated_time" content="2017-06-24T08:47:27.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-支援向量機SVM">
+<meta name="twitter:image" content="https://ccliao.github.io/images/decisiontree_group.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -92,7 +96,9 @@
 
 
 
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">from itertools import product</div><div class="line">import numpy as np</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">from sklearn.datasets import load_iris</div><div class="line">from sklearn import tree</div><div class="line">from sklearn.svm import SVC</div><div class="line">from sklearn.linear_model import LogisticRegression</div><div class="line"></div><div class="line">def plot_estimator(estimator, X, y):</div><div class="line">    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1</div><div class="line">    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1</div><div class="line">    xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1),</div><div class="line">                         np.arange(y_min, y_max, 0.1))</div><div class="line"></div><div class="line">    Z = estimator.predict(np.c_[xx.ravel(), yy.ravel()])</div><div class="line">    Z = Z.reshape(xx.shape)</div><div class="line"></div><div class="line">    plt.plot()</div><div class="line">    plt.contourf(xx, yy, Z, alpha=0.4, cmap = plt.cm.RdYlBu)</div><div class="line">    plt.scatter(X[:, 0], X[:, 1], c=y,  cmap = plt.cm.brg)</div><div class="line">    plt.xlabel(&apos;Petal.Length&apos;)</div><div class="line">    plt.ylabel(&apos;Petal.Width&apos;)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line">iris = load_iris()</div><div class="line">X = iris.data[:,[2,3]]</div><div class="line">y = iris.target[:]</div><div class="line">#決策樹DecisionTree</div><div class="line">clf = tree.DecisionTreeClassifier(max_depth=2)</div><div class="line">clf.fit(X, y)</div><div class="line">#支援向量機SVM</div><div class="line">clf1 = SVC(kernel=&quot;linear&quot;)</div><div class="line">clf1.fit(X, y)</div><div class="line">#羅吉斯迴歸</div><div class="line">clf2 = LogisticRegression()</div><div class="line">clf2.fit(X, y)</div><div class="line">plot_estimator(clf, X, y)</div><div class="line">plot_estimator(clf1, X, y)</div><div class="line">plot_estimator(clf2, X, y)</div></pre></td></tr></table></figure>
+<p><img src="/images/decisiontree_group.png" alt="決策樹模型"><br><img src="/images/svm.png" alt="支援向量機"><br><img src="/images/logistic_regression.png" alt="羅吉斯迴歸模型"></p>
+
       
     </div>
     <footer class="article-footer">
