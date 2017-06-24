@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://ccliao.github.io/images/logistic_regression.png">
 <meta property="og:image" content="https://ccliao.github.io/images/randomforest.png">
 <meta property="og:image" content="https://ccliao.github.io/images/customerchurn.png">
-<meta property="og:updated_time" content="2017-06-24T11:04:54.644Z">
+<meta property="og:updated_time" content="2017-06-24T11:06:18.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-迴歸分析">
 <meta name="twitter:description" content="相關係數,線性迴歸, statsmodels, sklearn, itertools">
@@ -249,8 +249,54 @@
 <p>正確率的計算方法有二<br>1.使用from sklearn.metrics import accuracy_score套件 <code>accuracy_score(iris.target, predicted)</code><br>2.直接sum()計算　<code>numpy.sum(y== dt.predict(X)) / len(y)</code></p>
 <p><strong>混洧矩陣</strong><br><code>from sklearn.metrics import confusion_matrix</code><br><code>confusion_matrix(iris.target, predicted)</code></p>
 <p>不同的正確率計算方式<br><code>from sklearn.metrics import classification_report</code><br><code>print(classification_report(iris.target, predicted))</code></p>
-<pre><code>| precision  |  recall  | f1-score   | support
-</code></pre><p>— | — | — | — | —<br>          0  |     1.00   |   1.00    |  1.00       | 50<br>          1  |     0.98   |   0.90    |  0.94       | 50<br>          2  |     0.91   |   0.98    |  0.94       | 50<br>— | — | — | — | —<br>avg / total  |     0.96   |   0.96    |  0.96      | 150</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>precision</th>
+<th>recall</th>
+<th>f1-score</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>   0</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>50</td>
+</tr>
+<tr>
+<td>   1</td>
+<td>0.98</td>
+<td>0.90</td>
+<td>0.94</td>
+<td>50</td>
+</tr>
+<tr>
+<td>   2</td>
+<td>0.91</td>
+<td>0.98</td>
+<td>0.94</td>
+<td>50</td>
+</tr>
+<tr>
+<td>   —</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>   avg / total</td>
+<td>0.96</td>
+<td>0.96</td>
+<td>0.96</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
