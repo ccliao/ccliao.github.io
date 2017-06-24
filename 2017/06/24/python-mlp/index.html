@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 線性迴歸 | LION OR CAT</title>
+  <title>Python-mlp | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LION OR CAT">
-<meta property="og:url" content="https://ccliao.github.io/tags/線性迴歸/index.html">
+  <meta name="description" content="待了解">
+<meta name="keywords" content="Neural Network,MLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-mlp">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/24/python-mlp/index.html">
 <meta property="og:site_name" content="LION OR CAT">
+<meta property="og:description" content="待了解">
+<meta property="og:image" content="https://ccliao.github.io/images/mlp.png">
+<meta property="og:updated_time" content="2017-06-24T09:46:07.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LION OR CAT">
+<meta name="twitter:title" content="Python-mlp">
+<meta name="twitter:description" content="待了解">
+<meta name="twitter:image" content="https://ccliao.github.io/images/mlp.png">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -59,39 +66,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-regression/" class="archive-article-date">
-  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">6月 18</time>
+        <section id="main"><article id="post-python-mlp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/24/python-mlp/" class="article-date">
+  <time datetime="2017-06-24T09:43:30.000Z" itemprop="datePublished">2017-06-24</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-regression/">Python-迴歸分析</a>
+    <h1 class="article-title" itemprop="name">
+      Python-mlp
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<p>待了解</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> sklearn.neural_network <span class="keyword">import</span> MLPClassifier</div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</div><div class="line">digits = load_digits() <span class="comment">#手寫數字資料庫</span></div><div class="line">scaler = StandardScaler()</div><div class="line">scaler.fit(digits.data)</div><div class="line">X_scaled = scaler.transform(digits.data)</div><div class="line"><span class="comment">#多層感知機類神經網路(Multi-Layer Perceptron Neural Network, MLP)</span></div><div class="line">mlp = MLPClassifier(hidden_layer_sizes=(<span class="number">30</span>,<span class="number">30</span>,<span class="number">30</span>), activation=<span class="string">'logistic'</span>, max_iter = <span class="number">1000</span>)</div><div class="line">mlp.fit(X_scaled,digits.target)</div><div class="line">predicted = mlp.predict(X_scaled)</div><div class="line">fig = plt.figure(figsize = (<span class="number">8</span>,<span class="number">8</span>))</div><div class="line">fig.subplots_adjust(left=<span class="number">0</span>, right=<span class="number">1</span>, bottom=<span class="number">0</span>, top=<span class="number">1</span>, hspace=<span class="number">0.05</span>, wspace=<span class="number">0.05</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">36</span>):</div><div class="line">    ax = fig.add_subplot(<span class="number">6</span>, <span class="number">6</span>, i+<span class="number">1</span>, xticks=[], yticks=[])</div><div class="line">    ax.imshow(digits.images[i],cmap=plt.cm.binary,interpolation=<span class="string">'nearest'</span>)</div><div class="line">    ax.text(<span class="number">0</span>, <span class="number">7</span>, str(<span class="string">'&#123;&#125;-&#123;&#125;'</span>.format(digits.target[i],predicted[i])), color=<span class="string">"red"</span>, fontsize = <span class="number">20</span>)</div><div class="line"></div><div class="line">res = []</div><div class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> zip(digits.target,predicted):</div><div class="line">    res.append(i==j)</div><div class="line">sum(res) / len(digits.target)</div></pre></td></tr></table></figure>
+<p><img src="/images/mlp.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/24/python-mlp/" data-id="cj4b3ovev0007lob2fzr3dk6c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MLP/">MLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Network/">Neural Network</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/24/python-svm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python-支援向量機SVM</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
