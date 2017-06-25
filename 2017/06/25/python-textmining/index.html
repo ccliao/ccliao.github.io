@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 羅吉斯迴歸 | LION OR CAT</title>
+  <title>python-textmining | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LION OR CAT">
-<meta property="og:url" content="https://ccliao.github.io/tags/羅吉斯迴歸/index.html">
+  <meta name="keywords" content="文字探勘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-textmining">
+<meta property="og:url" content="https://ccliao.github.io/2017/06/25/python-textmining/index.html">
 <meta property="og:site_name" content="LION OR CAT">
+<meta property="og:updated_time" content="2017-06-25T15:37:08.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LION OR CAT">
+<meta name="twitter:title" content="python-textmining">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -59,39 +61,69 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-regression/" class="archive-article-date">
-  <time datetime="2017-06-18T04:34:06.000Z" itemprop="datePublished">6月 18</time>
+        <section id="main"><article id="post-python-textmining" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/25/python-textmining/" class="article-date">
+  <time datetime="2017-06-25T13:37:09.000Z" itemprop="datePublished">2017-06-25</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-regression/">Python-迴歸分析</a>
+    <h1 class="article-title" itemprop="name">
+      python-textmining
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>利用<a href="https://docs.python.org/3/library/re.html" target="_blank" rel="external">re.split</a>進行多重組合條件切割文字<br><code>split_word = &quot;，|。|、|●|◎|◆|★|：|／|\(|\)|《|》|－|！|～|『|』|「|」|【|】|XXX&quot;</code><br><code>words = re.split(split_word, iti)</code></p>
+<p>N-gram文字切割處理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def ngram(sentence, n = 2, skip_word= skip_dic):</div><div class="line">    word_dic = &#123;&#125;</div><div class="line">    for i in range(0, len(sentence) - n + 1):</div><div class="line">        invalid = len([word for word in sentence[i:i+n] if word in skip_word])</div><div class="line">        if sentence[i:i+n] not in word_dic and invalid ==0:</div><div class="line">            word_dic[sentence[i:i+n]] = 1</div><div class="line">        elif invalid ==0:</div><div class="line">            word_dic[sentence[i:i+n]] = word_dic[sentence[i:i+n]] + 1</div><div class="line">    return word_dic</div></pre></td></tr></table></figure></p>
+<h2 id="Jieba"><a href="#Jieba" class="headerlink" title="Jieba"></a><a href="https://github.com/fxsjy/jieba" target="_blank" rel="external">Jieba</a></h2><p><code>jwords = jieba.cut(&#39; &#39;.join(words), cut_all=False)</code><br>使用jieba.cut文字出來後，資料型態為Generator () 非List []，如果要直接成list可以改用jieba.lcut</p>
+<blockquote>
+<p>如果清單元素可以按照某種演算法推算出來，那我們是否可以在迴圈的過程中不斷推算出後續的元素呢？這樣就不必創建完整的list，從而節省大量的空間。在Python中，這種一邊迴圈一邊計算的機制，稱為生成器（Generator）。</p>
+</blockquote>
+<p>統計詞的數量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dic = &#123;&#125;</div><div class="line">jwords = jieba.cut(sentence)</div><div class="line">for word in jwords:</div><div class="line">    if word not in dic:</div><div class="line">        dic[word] = 1</div><div class="line">    else:</div><div class="line">        dic[word] += 1</div><div class="line">sorted(dic.items(), key=lambda x:x[1], reverse=True) #依values由大至小排序，並同時呈現key,value</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/06/25/python-textmining/" data-id="cj4cvql17000icwb2izati2yw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文字探勘/">文字探勘</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/24/python-mlp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python-mlp</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
