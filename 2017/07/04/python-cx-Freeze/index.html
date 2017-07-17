@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: One-Hot | LION OR CAT</title>
+  <title>python_cx_Freeze | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LION OR CAT">
-<meta property="og:url" content="https://ccliao.github.io/tags/One-Hot/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="python_cx_Freeze">
+<meta property="og:url" content="https://ccliao.github.io/2017/07/04/python-cx-Freeze/index.html">
 <meta property="og:site_name" content="LION OR CAT">
+<meta property="og:updated_time" content="2017-07-03T16:32:40.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LION OR CAT">
+<meta name="twitter:title" content="python_cx_Freeze">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -59,39 +60,66 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/python-pandas/" class="archive-article-date">
-  <time datetime="2017-06-18T00:18:38.000Z" itemprop="datePublished">6月 18</time>
+        <section id="main"><article id="post-python-cx-Freeze" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/04/python-cx-Freeze/" class="article-date">
+  <time datetime="2017-07-03T16:00:24.000Z" itemprop="datePublished">2017-07-04</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/python-pandas/">Python-Pandas語法</a>
+    <h1 class="article-title" itemprop="name">
+      python_cx_Freeze
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>以往將py包裝成exe，都是採pyinstaller，但在python 3.6無法執行，會出現＂IndexError: tuple index out of range＂，主要是pyinstaller還不支援新的python 3.6。<br>改用cx_Freeze，其操作模式參照<a href="https://regilanj.wordpress.com/2017/06/07/py-to-exe-in-python-3-6-1/" target="_blank" rel="external">Here</a>。<br>但執行setup.py後會出現KeyError: ‘TCL_Library’訊息，查詢後主要在setup.py補上tcl86t.dll及tk86t.dll的位址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">os.environ[&apos;TCL_LIBRARY&apos;] = r&apos;C:\Users\netmeeting\AppData\Local\Continuum\Anaconda3\DLLs\tcl86t.dll&apos;</div><div class="line">os.environ[&apos;TK_LIBRARY&apos;] = r&apos;C:\Users\netmeeting\AppData\Local\Continuum\Anaconda3\DLLs\tk86t.dll&apos;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ccliao.github.io/2017/07/04/python-cx-Freeze/" data-id="cj58cnhoq000c4kb273zx4v5r" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/09/django/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          django
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/27/python-re/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python-正規表達式</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
