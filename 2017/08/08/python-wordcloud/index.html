@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>django | LION OR CAT</title>
+  <title>python-wordcloud | LION OR CAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="django">
-<meta property="og:url" content="https://ccliao.github.io/2017/07/09/django/index.html">
+  <meta name="keywords" content="wordcloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-wordcloud">
+<meta property="og:url" content="https://ccliao.github.io/2017/08/08/python-wordcloud/index.html">
 <meta property="og:site_name" content="LION OR CAT">
-<meta property="og:updated_time" content="2017-07-09T14:10:59.807Z">
+<meta property="og:updated_time" content="2017-08-08T19:57:46.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="django">
+<meta name="twitter:title" content="python-wordcloud">
   
     <link rel="alternate" href="/atom.xml" title="LION OR CAT" type="application/atom+xml">
   
@@ -60,14 +61,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-django" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-python-wordcloud" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/09/django/" class="article-date">
-  <time datetime="2017-07-09T14:00:44.000Z" itemprop="datePublished">2017-07-09</time>
+    <a href="/2017/08/08/python-wordcloud/" class="article-date">
+  <time datetime="2017-08-08T12:17:38.000Z" itemprop="datePublished">2017-08-08</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Django/">Django</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -78,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      django
+      python-wordcloud
     </h1>
   
 
@@ -91,37 +92,28 @@
 
 
 
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="開立新專案-tourismdata"><a href="#開立新專案-tourismdata" class="headerlink" title="開立新專案(tourismdata)"></a>開立新專案(tourismdata)</h1><p><code>django-admin.py startproject tourismdata</code><br><code>python manage.py migrate</code></p>
-<h1 id="資料夾結構"><a href="#資料夾結構" class="headerlink" title="資料夾結構"></a>資料夾結構</h1><p>tourismdata/<br>├── manage.py<br>└── tourismdata<br>    ├── <strong>init</strong>.py<br>    ├── settings.py<br>    ├── urls.py<br>    └── wsgi.py</p>
-<h1 id="啓動server"><a href="#啓動server" class="headerlink" title="啓動server"></a>啓動server</h1><p><code>python manage.py runserver</code></p>
-<h1 id="新增Django-app"><a href="#新增Django-app" class="headerlink" title="新增Django app"></a>新增Django app</h1><p><code>python manage.py startapp arrival_stat</code></p>
-<h1 id="將新增的Django-app加入設定檔settings-py中的INSTALLED-APPS區塊"><a href="#將新增的Django-app加入設定檔settings-py中的INSTALLED-APPS區塊" class="headerlink" title="將新增的Django app加入設定檔settings.py中的INSTALLED_APPS區塊"></a>將新增的Django app加入設定檔settings.py中的INSTALLED_APPS區塊</h1><p>INSTALLED_APPS = [<br>    ‘django.contrib.admin’,<br>    ‘django.contrib.auth’,<br>    ‘django.contrib.contenttypes’,<br>    ‘django.contrib.sessions’,<br>    ‘django.contrib.messages’,<br>    ‘django.contrib.staticfiles’,<br>    ‘arrival_stat’,<br>]</p>
-
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>文字探勘套件，以前學的都是Jieba，最近覺得BosonNLP滿好用的<br>bosonnlp詞性分析<br><a href="http://docs.bosonnlp.com/tag.html" target="_blank" rel="external">http://docs.bosonnlp.com/tag.html</a><br>情感分析 nlp.sentiment(s)<br>命名实体识别 nlp.ner(s)<br>依存文法分析 nlp.depparser(s)<br>关键词提取 nlp.extract_keywords(s, top_k=10)<br>新闻分类 nlp.classify(s)<br>语义联想 nlp.suggest(term, top_k=10)<br>分词与词性标注 nlp.tag(s)<br>时间转换 nlp.convert_time(“今天晚上8点到明天下午3点”, datetime.datetime(2015, 9, 1))<br>新聞摘要 nlp.summary(title, content)</p>
+<p>另外，想呈現文字雲的概念，先用了pytagcloud，無論是英文或中文都碰到同一個錯誤訊息，只好暫先放棄，改用wordcloud<br>‘cp950’ codec can’t decode byte 0xc3 in position 223: illegal multibyte sequence’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">from bosonnlp import BosonNLP</div><div class="line">iti = group_data_pd[&apos;行程內容&apos;].iloc[0]</div><div class="line">split_word = &quot;，|。|、|●|◎|◆|★|：|／|\(|\)|《|》|－|！|～|『|』|「|」|【|】|XXX&quot; </div><div class="line">iti_s = re.split(split_word, iti)</div><div class="line">iti_ss = &quot; &quot;.join(iti_s)</div><div class="line"></div><div class="line">bosonnlp_token = &quot;MufqZvMn.17180.1TXDWsWO0_qk&quot;</div><div class="line">nlp = BosonNLP(bosonnlp_token)</div><div class="line">nlp_tag = nlp.tag(iti_ss)</div><div class="line">word_join = &apos; &apos;.join(nlp_tag[0][&apos;word&apos;])</div><div class="line">result = nlp.extract_keywords(iti_ss)</div><div class="line"></div><div class="line">#文字雲用的遮罩圖片</div><div class="line">from PIL import Image</div><div class="line">import numpy as np</div><div class="line">abel_mask = np.array(Image.open(&quot;lion_icon2.png&quot;))</div><div class="line"></div><div class="line">#使用wordcloud產生文字雲</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">from wordcloud import WordCloud</div><div class="line">my_wordcloud = WordCloud(background_color=&quot;white&quot;, mask=abel_mask).generate(&apos; &apos;.join(nlp_tag[0][&apos;word&apos;]))</div><div class="line">plt.figure(figsize=(15,10)) </div><div class="line">plt.imshow(my_wordcloud)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h1 id="一直有文字重覆的問題，後來看wordcloud-py出現下述文字，將collocations-False補上後即正常"><a href="#一直有文字重覆的問題，後來看wordcloud-py出現下述文字，將collocations-False補上後即正常" class="headerlink" title="一直有文字重覆的問題，後來看wordcloud.py出現下述文字，將collocations=False補上後即正常"></a>一直有文字重覆的問題，後來看wordcloud.py出現下述文字，將collocations=False補上後即正常</h1><h1 id="The-input-“text”-is-expected-to-be-a-natural-text-If-you-pass-a-sorted"><a href="#The-input-“text”-is-expected-to-be-a-natural-text-If-you-pass-a-sorted" class="headerlink" title="The input “text” is expected to be a natural text. If you pass a sorted"></a>The input “text” is expected to be a natural text. If you pass a sorted</h1><h1 id="list-of-words-words-will-appear-in-your-output-twice-To-remove-this"><a href="#list-of-words-words-will-appear-in-your-output-twice-To-remove-this" class="headerlink" title="list of words, words will appear in your output twice. To remove this"></a>list of words, words will appear in your output twice. To remove this</h1><h1 id="duplication-set-collocations-False"><a href="#duplication-set-collocations-False" class="headerlink" title="duplication, set collocations=False."></a>duplication, set <code>collocations=False</code>.</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ccliao.github.io/2017/07/09/django/" data-id="cj6429hfk00005wb2meirtq52" class="article-share-link">Share</a>
+      <a data-url="https://ccliao.github.io/2017/08/08/python-wordcloud/" data-id="cj6429hj1001j5wb230v1y7vi" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordcloud/">wordcloud</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/08/08/python-wordcloud/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          python-wordcloud
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/04/python-cx-Freeze/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/09/django/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">python_cx_Freeze</div>
+      <div class="article-nav-title">django</div>
     </a>
   
 </nav>
