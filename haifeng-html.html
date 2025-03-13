@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海風號甜點觀光列車 | 雄獅旅遊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #3EADEF, #5cccaa);
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 100px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #3EADEF;
+            margin: 30px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: #ff6600;
+            font-weight: bold;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        
+        .feature-box {
+            flex-basis: calc(33.33% - 20px);
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-box h3 {
+            color: #3EADEF;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #5cccaa;
+        }
+        
+        .price-section {
+            background: linear-gradient(to right, rgba(62, 173, 239, 0.1), rgba(92, 204, 170, 0.1));
+            padding: 50px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        
+        .price-section h2 {
+            margin-bottom: 30px;
+        }
+        
+        .price-box {
+            display: inline-block;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 15px 20px;
+            min-width: 250px;
+        }
+        
+        .price-box h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 2rem;
+            color: #ff6600;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .schedule {
+            margin: 40px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #3EADEF;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #e55c00;
+            transform: translateY(-3px);
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            flex-basis: calc(25% - 20px);
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            background: #ddd;
+        }
+        
+        .gallery-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6));
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            color: white;
+            z-index: 1;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #5cccaa;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-box {
+                flex-basis: calc(50% - 20px);
+            }
+            
+            .gallery-item {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .feature-box {
+                flex-basis: 100%;
+            }
+            
+            .gallery-item {
+                flex-basis: 100%;
+                margin: 10px 0;
+            }
+            
+            .price-box {
+                width: 100%;
+                margin: 0 0 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#ffffff" />
+                    <text x="50" y="45" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6600">雄獅</text>
+                    <text x="50" y="70" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6600">旅遊</text>
+                </svg>
+            </div>
+            <h1>讓心靈隨著海風搖曳</h1>
+            <p>一場關於味蕾與視覺的雙重饗宴</p>
+        </div>
+    </header>
+    
+    <div class="hero">
+        <div class="container">
+            <div class="hero-image">
+                <!-- 嵌入SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+                  <!-- 背景漸層 -->
+                  <defs>
+                    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#a4ddff;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#e9f7ff;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#3EADEF;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#2288cc;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="trainGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#3EADEF;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#5cccaa;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
+                      <feOffset dx="3" dy="3" result="offsetblur" />
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5" />
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <!-- 天空背景 -->
+                  <rect width="800" height="250" fill="url(#skyGradient)" />
+                  
+                  <!-- 海洋背景 -->
+                  <rect y="250" width="800" height="150" fill="url(#oceanGradient)" />
+                  
+                  <!-- 海浪 -->
+                  <path d="M0,250 C100,230 200,270 300,250 C400,230 500,270 600,250 C700,230 800,270 800,250 L800,280 L0,280 Z" fill="#5cccaa" opacity="0.7" />
+                  <path d="M0,270 C100,250 200,290 300,270 C400,250 500,290 600,270 C700,250 800,290 800,270 L800,300 L0,300 Z" fill="#ffffff" opacity="0.3" />
+                  
+                  <!-- 遠方山丘 -->
+                  <path d="M0,250 L200,200 L350,240 L500,180 L650,230 L800,190 L800,250 Z" fill="#aaddcc" opacity="0.7" />
+                  
+                  <!-- 海風號列車 -->
+                  <g transform="translate(150, 200)">
+                    <!-- 車身 -->
+                    <rect x="0" y="0" width="500" height="90" rx="15" ry="15" fill="url(#trainGradient)" filter="url(#shadow)" />
+                    
+                    <!-- 車窗 -->
+                    <rect x="30" y="15" width="60" height="40" rx="5" ry="5" fill="#ffffff" opacity="0.9" />
+                    <rect x="110" y="15" width="70" height="60" rx="5" ry="5" fill="#ffffff" opacity="0.9" />
+                    <rect x="200" y="15" width="70" height="60" rx="5" ry="5" fill="#ffffff" opacity="0.9" />
+                    <rect x="290" y="15" width="70" height="60" rx="5" ry="5" fill="#ffffff" opacity="0.9" />
+                    <rect x="380" y="15" width="70" height="60" rx="5" ry="5" fill="#ffffff" opacity="0.9" />
+                    
+                    <!-- 車輪 -->
+                    <circle cx="80" cy="100" r="20" fill="#333333" />
+                    <circle cx="80" cy="100" r="10" fill="#666666" />
+                    <circle cx="180" cy="100" r="20" fill="#333333" />
+                    <circle cx="180" cy="100" r="10" fill="#666666" />
+                    <circle cx="320" cy="100" r="20" fill="#333333" />
+                    <circle cx="320" cy="100" r="10" fill="#666666" />
+                    <circle cx="420" cy="100" r="20" fill="#333333" />
+                    <circle cx="420" cy="100" r="10" fill="#666666" />
+                    
+                    <!-- 下方線條 -->
+                    <rect x="-10" y="90" width="520" height="15" rx="5" ry="5" fill="#2D8DC1" />
+                  </g>
+                  
+                  <!-- 甜點圖示 -->
+                  <g transform="translate(650, 160)">
+                    <circle cx="0" cy="0" r="50" fill="#ffccee" opacity="0.9" filter="url(#shadow)" />
+                    <path d="M-25,-5 C-20,-15 20,-15 25,-5 L15,20 C5,25 -5,25 -15,20 Z" fill="#88ddcc" />
+                    <circle cx="0" cy="-5" r="8" fill="#ffffff" opacity="0.5" />
+                  </g>
+                  
+                  <!-- 主標題 -->
+                  <g transform="translate(400, 100)">
+                    <text text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" filter="url(#shadow)">海風號</text>
+                    <text text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" filter="url(#shadow)" y="50">甜點觀光列車</text>
+                  </g>
+                  
+                  <!-- 副標題 -->
+                  <text x="400" y="330" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="24" fill="#ffffff">沿著西海岸 品味絕美風景與甜點</text>
+                  
+                  <!-- 雄獅旅遊 LOGO -->
+                  <g transform="translate(60, 60)">
+                    <circle cx="0" cy="0" r="35" fill="#ffffff" />
+                    <text x="0" y="10" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="16" font-weight="bold" fill="#ff6600">雄獅</text>
+                    <text x="0" y="30" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="16" font-weight="bold" fill="#ff6600">旅遊</text>
+                  </g>
+                  
+                  <!-- CTA 按鈕 -->
+                  <g transform="translate(400, 380)">
+                    <rect x="-120" y="-25" width="240" height="50" rx="25" ry="25" fill="#ff6600" filter="url(#shadow)" />
+                    <text x="0" y="5" text-anchor="middle" font-family="微軟正黑體, Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">立即預訂</text>
+                  </g>
+                </svg>
+            </div>
+            
+            <div class="container">
+                <h2>台灣第一台甜點觀光列車，開啟感官新體驗</h2>
+                <p>「海風號」是台鐵全新打造的觀光列車，以<span class="highlight">台灣西海岸清澈藍海為設計靈感</span>，車身採用療癒的湛藍與翠綠色彩。乘坐海風號，不僅能欣賞西部海岸線絕美風光，更能品嚐精緻法式甜點，沉浸在專屬香氛打造的奢華旅程中。</p>
+                
+                <p>行經後龍至白沙屯段時，海風號會<span class="highlight">刻意放慢速度</span>至每小時30公里，讓您有充裕時間捕捉台灣西部最迷人的濱海風景，打卡、拍照都不匆忙，讓每一刻都值得珍藏。</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="features">
+            <div class="feature-box">
+                <div class="feature-icon">✨</div>
+                <h3>全景落地窗座椅</h3>
+                <p>車廂內設計圓角全景落地窗，配有復古絨布沙發座椅，現代美學風格營造舒適旅途，讓您零死角欣賞窗外海岸線美景。</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">🍰</div>
+                <h3>米其林星級甜點</h3>
+                <p>海風號提供MANO MANO法式甜點與全球首間米其林一星MINIMAL冰店特製冰淇淋，在鐵道上享受頂級甜點饗宴。</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">🌊</div>
+                <h3>沉浸式香氛體驗</h3>
+                <p>車廂內使用柔和漸層燈光，搭配佛手柑夕陽與海洋系列香氛，讓旅程成為五感全方位的療癒體驗。</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">🚂</div>
+                <h3>精緻內裝設計</h3>
+                <p>車廂內部採用夢幻馬卡龍色與灰白色設計，洗手間配有圓形鏡面與大理石紋流理台，展現細緻優雅的質感。</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">📱</div>
+                <h3>現代化便利設施</h3>
+                <p>每個座位皆配有USB插座，讓您在旅途中保持設備充電，不錯過任何美景拍攝機會。</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">♿</div>
+                <h3>友善無障礙空間</h3>
+                <p>車廂特別設計無障礙座位，照顧各種旅客需求，讓每個人都能舒適享受鐵道之旅。</p>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <h2>精選行程與票價</h2>
+            <div class="price-box">
+                <h3>單程甜點套票</h3>
+                <div class="price">NT$ 3,600</div>
+                <p>含海風號單程車資、紀念車票、精緻甜點、旅行業責任保險</p>
+                <p><small>高鐵國旅聯票享85折優惠</small></p>
+            </div>
+            
+            <div class="price-box">
+                <h3>二日遊行程</h3>
+                <div class="price">NT$ 7,699起</div>
+                <p>含海風號車票、住宿、部分餐食</p>
+                <p><small>可選台南、高雄出發</small></p>
+            </div>
+            
+            <div class="price-box">
+                <h3>三天兩夜複合式列車體驗</h3>
+                <div class="price">NT$ 19,900</div>
+                <p>「海風號x福森號」複合式列車體驗</p>
+                <p><small>25人即可成行</small></p>
+            </div>
+        </div>
+        
+        <div class="schedule">
+            <h2>海風號時刻表</h2>
+            <p>即日起至2025年3月30日，海風號將於<span class="highlight">每週五至日</span>發車，帶您探索西部海岸線。</p>
+            
+            <h3>新竹往台中方向</h3>
+            <table>
+                <tr>
+                    <th>車站</th>
+                    <th>到站時刻</th>
+                    <th>發車時刻</th>
+                </tr>
+                <tr>
+                    <td>新竹</td>
+                    <td>08:29</td>
+                    <td>09:01</td>
+                </tr>
+                <tr>
+                    <td>後龍</td>
+                    <td colspan="2">後龍溪-白沙屯慢行時速30-35KM</td>
+                </tr>
+                <tr>
+                    <td>新埔</td>
+                    <td>09:47</td>
+                    <td>10:10</td>
+                </tr>
+                <tr>
+                    <td>大甲</td>
+                    <td>10:33</td>
+                    <td>11:25</td>
+                </tr>
+                <tr>
+                    <td>新烏日</td>
+                    <td>12:04</td>
+                    <td>12:07</td>
+                </tr>
+                <tr>
+                    <td>台中</td>
+                    <td>12:16</td>
+                    <td>-</td>
+                </tr>
+            </table>
+            
+            <h3>台中往新竹方向</h3>
+            <table>
+                <tr>
+                    <th>車站</th>
+                    <th>到站時刻</th>
+                    <th>發車時刻</th>
+                </tr>
+                <tr>
+                    <td>台中</td>
+                    <td>-</td>
+                    <td>13:55</td>
+                </tr>
+                <tr>
+                    <td>新烏日</td>
+                    <td>14:05</td>
+                    <td>14:07</td>
+                </tr>
+                <tr>
+                    <td>新埔</td>
+                    <td>15:13</td>
+                    <td>15:40</td>
+                </tr>
+                <tr>
+                    <td>龍港</td>
+                    <td colspan="2">白沙屯-後龍溪慢行時速30-35KM</td>
+                </tr>
+                <tr>
+                    <td>後龍</td>
+                    <td>16:00</td>
+                    <td>17:03</td>
+                </tr>
+                <tr>
+                    <td>新竹</td>
+                    <td>17:30</td>
+                    <td>17:32</td>
+                </tr>
+            </table>
+            <p><small>*正確運行時間依台鐵公司當日調度排點為主</small></p>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item" style="background: linear-gradient(135deg, #3EADEF 0%, #5cccaa 100%);">
+                <div class="gallery-caption">海風號外觀</div>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #ffccee 0%, #ffaa88 100%);">
+                <div class="gallery-caption">精緻法式甜點</div>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #aaddcc 0%, #88bbaa 100%);">
+                <div class="gallery-caption">沿途海岸風光</div>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #ddccff 0%, #bbaaee 100%);">
+                <div class="gallery-caption">車廂內部設計</div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>開啟一場視覺與味蕾的雙重饗宴</h2>
+            <p>讓海風號成為您與家人朋友共享美好時光的絕佳選擇</p>
+            <p>即日起至2025年3月30日，<span class="highlight">每週五至日發車</span>，座位有限，請提早預訂！</p>
+            <a href="https://www.liontravel.com/category/zh-tw/railtour/index" class="cta-button">立即預訂</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 雄獅旅遊 版權所有</p>
+            <p><a href="https://www.liontravel.com/category/zh-tw/railtour/index">探索更多鐵道旅遊</a></p>
+            <p>圖片來源: 台鐵、雄獅旅遊</p>
+        </div>
+    </footer>
+</body>
+</html>
